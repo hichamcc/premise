@@ -262,7 +262,6 @@ class QuestionnaireForm extends Component
         $data['hip_circumference'] = $this->hip_circumference;
         $data['chest_circumference'] = $this->chest_circumference;
 
-        dd($data);
         Questionnaire::create($data);
 
         // Run the artisan command
