@@ -93,20 +93,22 @@
                 @endif
             </div>
 
-            <button wire:click="nextQuestion"  class=" bottom-0 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-blue-700 to-blue-400 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-                <span class="flex gap-2 items-center relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                    Next Step
-                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </span>
-            </button>
-        @else
-                <div class="font-medium text-lg">
-                    <p class=" mb-2">You will be able to consult your plan in your account. </p>
-                    <p class=" mb-2">By following the diet regimen you will find in your account you should lose at least 20 pounds in three months.</p>
-                    <p class=" mb-2">We aim for this result for three reasons:</p>
-                    <p class=" mb-2 text-blue-600">1) All studies have shown major benefits even with weight reductions of 5%.</p>
+                @if ($currentQuestion['type'] != 'select')
+                    <button wire:click="nextQuestion"  class=" bottom-0 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-blue-700 to-blue-400 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                        <span class="flex gap-2 items-center relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            Next Step
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </span>
+                    </button>
+                @endif
+            @else
+                    <div class="font-medium text-lg">
+                        <p class=" mb-2">You will be able to consult your plan in your account. </p>
+                        <p class=" mb-2">By following the diet regimen you will find in your account you should lose at least 20 pounds in three months.</p>
+                        <p class=" mb-2">We aim for this result for three reasons:</p>
+                        <p class=" mb-2 text-blue-600">1) All studies have shown major benefits even with weight reductions of 5%.</p>
                     <p class=" mb-2 text-blue-600">2) The slowest weight losses are the ones that are most sustained over time.</p>
                     <p class=" mb-2 text-blue-600">3) Excessive calorie reduction may be difficult to follow.</p>
                     <p class=" mb-2 ">We prefer to proceed in steps, so having reached the first goal at three months, we can continue with a more ambitious goal.”</p>
