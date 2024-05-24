@@ -195,6 +195,10 @@ class QuestionnaireForm extends Component
             'answers.front_photo' => 'nullable|image|max:10240', // 10MB max
             'answers.side_photos' => 'nullable|image|max:10240', // 10MB max
             'answers.back_photo' => 'nullable|image|max:10240', // 10MB max
+            'answers.left_arm_circumference' => 'nullable|string',
+            'answers.waist_circumference' => 'nullable|string',
+            'answers.hip_circumference' => 'nullable|string',
+            'answers.chest_circumference' => 'nullable|string',
         ]);
 
         $data = [];
