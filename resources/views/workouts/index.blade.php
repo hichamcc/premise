@@ -21,20 +21,22 @@
                                 </svg>
                             </span>
                         </a>
+                    @else
+                        <div class="p-4">
+                            @if ($workoutVideo)
+                                <div class="aspect-w-16 aspect-h-9">
+                                    <video controls class="w-full rounded-lg">
+                                        <source src="storage/{{ $workoutVideo }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            @else
+                                <p class="text-gray-600">No workout video available for today.</p>
+                            @endif
+                        </div>
+
                     @endif
 
-                    <div class="p-4">
-                        @if ($workoutVideo)
-                            <div class="aspect-w-16 aspect-h-9">
-                                <video controls class="w-full rounded-lg">
-                                    <source src="storage/{{ $workoutVideo }}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                        @else
-                            <p class="text-gray-600">No workout video available for today.</p>
-                        @endif
-                    </div>
 
                 </div>
             </div>
