@@ -191,10 +191,15 @@ class QuestionnaireForm extends Component
 
     public function storeQuestionnaire()
     {
+        // Validate the file inputs
         $this->validate([
-            'answers.front_photo' => 'nullable|image|max:10240', // 10MB max
-            'answers.side_photos' => 'nullable|image|max:10240', // 10MB max
-            'answers.back_photo' => 'nullable|image|max:10240', // 10MB max
+            'front_photo' => 'nullable|image|max:10240', // 10MB max
+            'side_photo' => 'nullable|image|max:10240', // 10MB max
+            'back_photo' => 'nullable|image|max:10240', // 10MB max
+        ]);
+
+        // Validate the text inputs
+        $this->validate([
             'answers.left_arm_circumference' => 'nullable|string',
             'answers.waist_circumference' => 'nullable|string',
             'answers.hip_circumference' => 'nullable|string',
