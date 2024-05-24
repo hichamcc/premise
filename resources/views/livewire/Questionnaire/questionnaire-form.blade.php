@@ -69,7 +69,8 @@
                     <div class="step">
                         @foreach (['left_arm_circumference', 'waist_circumference', 'hip_circumference', 'chest_circumference'] as $keya)
                             <div class="flex gap-2 items-center mb-2">
-                                <label class="w-1/2 text-xl">{{ $questions[$keya]['label'] }}</label>
+                                <label class="w-1/2 text-xl">{{ $questions[$keya
+                                ]['label'] }}</label>
                                 <input class="w-1/2 mt-2 block w-1/2 mx-auto h-[50px] text-xl px-4 py-2 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" type="text" wire:model.defer="answers.{{ $key }}" placeholder="{{ $questions[$key]['placeholder'] }}">
                             </div>
                         @endforeach
