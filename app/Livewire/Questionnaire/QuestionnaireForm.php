@@ -188,6 +188,11 @@ class QuestionnaireForm extends Component
 
     public function storeQuestionnaire()
     {
+        $this->validate([
+            'answers.front_photo' => 'nullable|image|max:10240', // 10MB max
+            'answers.side_photo' => 'nullable|image|max:10240', // 10MB max
+            'answers.back_photo' => 'nullable|image|max:10240', // 10MB max
+        ]);
 
         $data = [];
         foreach ($this->questionKeys as $key) {
@@ -215,19 +220,16 @@ class QuestionnaireForm extends Component
 
         $data['calories'] = (int)$this->calories;
 
-        // Store the uploaded files and add their paths to the data array
         // Store the uploaded files only if they are present and add their paths to the data array
-        if (isset($this->answers['front_photo'])) {
             $data['front_photo'] = $this->answers['front_photo']->store('photos', 'public');
-        }
 
-        if (isset($this->answers['side_photo'])) {
+
             $data['side_photo'] = $this->answers['side_photo']->store('photos', 'public');
-        }
 
-        if (isset($this->answers['back_photo'])) {
+
             $data['back_photo'] = $this->answers['back_photo']->store('photos', 'public');
-        }
+
+
         Questionnaire::create($data);
 
         // Run the artisan command
