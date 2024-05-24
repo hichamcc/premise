@@ -84,7 +84,7 @@
                             @foreach (['front_photo', 'side_photos', 'back_photo'] as $key)
                                 <div class="flex gap-2 items-center mb-2">
                                     <label class="w-1/2 text-xl">{{ $questions[$key]['label'] }}</label>
-                                    <input class="  mt-2 block w-1/2 px-4 py-2 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" type="file" wire:model.defer="answers.{{ $key }}">
+                                    <input class="  mt-2 block w-1/2 px-4 py-2 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" type="file" wire:model.defer="{{ $key }}">
                                 </div>
                             @endforeach
                         </div>

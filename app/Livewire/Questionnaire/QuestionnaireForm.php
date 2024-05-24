@@ -23,7 +23,7 @@ class QuestionnaireForm extends Component
     public $calories = null;
     public $answered = false ;
     public $front_photo;
-    public $side_photo;
+    public $side_photos;
     public $back_photo;
 
 
@@ -190,7 +190,7 @@ class QuestionnaireForm extends Component
     {
         $this->validate([
             'answers.front_photo' => 'nullable|image|max:10240', // 10MB max
-            'answers.side_photo' => 'nullable|image|max:10240', // 10MB max
+            'answers.side_photos' => 'nullable|image|max:10240', // 10MB max
             'answers.back_photo' => 'nullable|image|max:10240', // 10MB max
         ]);
 
@@ -220,14 +220,17 @@ class QuestionnaireForm extends Component
 
         $data['calories'] = (int)$this->calories;
 
-        // Store the uploaded files only if they are present and add their paths to the data array
-            $data['front_photo'] = $this->answers['front_photo']->store('photos', 'public');
+        if ($this->front_photo) {
+            $data['front_photo'] = $this->front_photo->store('photos', 'public');
+        }
 
+        if ($this->side_photos) {
+            $data['side_photos'] = $this->side_photo->store('photos', 'public');
+        }
 
-            $data['side_photo'] = $this->answers['side_photo']->store('photos', 'public');
-
-
-            $data['back_photo'] = $this->answers['back_photo']->store('photos', 'public');
+        if ($this->back_photo) {
+            $data['back_photo'] = $this->back_photo->store('photos', 'public');
+        }
 
 
         Questionnaire::create($data);
