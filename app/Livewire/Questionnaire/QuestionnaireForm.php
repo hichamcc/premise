@@ -25,7 +25,11 @@ class QuestionnaireForm extends Component
     public $front_photo;
     public $side_photos;
     public $back_photo;
-
+// Properties for text inputs
+    public $left_arm_circumference;
+    public $waist_circumference;
+    public $hip_circumference;
+    public $chest_circumference;
 
     public $questions = [
         'genre' => ['required'=>'true','label' => 'SELECT YOUR GENRE', 'type' => 'select', 'options' => ['Male', 'Female'] ],
@@ -84,10 +88,6 @@ class QuestionnaireForm extends Component
         'fish_not_eaten',
         'intolerances_or_allergies',
         'diseases_diagnosed_by_doctor',
-        'left_arm_circumference',
-        'waist_circumference',
-        'hip_circumference',
-        'chest_circumference',
         'front_photo',
         'side_photos',
         'back_photo',
@@ -206,7 +206,23 @@ class QuestionnaireForm extends Component
             'answers.chest_circumference' => 'nullable|string',
         ]);
 
-        $data = [];
+        // Validate text inputs
+        $this->validate([
+            'left_arm_circumference' => 'nullable|string',
+            'waist_circumference' => 'nullable|string',
+            'hip_circumference' => 'nullable|string',
+            'chest_circumference' => 'nullable|string',
+        ]);
+
+        // Prepare data array for text inputs
+        $data = [
+            'left_arm_circumference' => $this->left_arm_circumference,
+            'waist_circumference' => $this->waist_circumference,
+            'hip_circumference' => $this->hip_circumference,
+            'chest_circumference' => $this->chest_circumference,
+            'user_id' => Auth::id(),
+            'calories' => (int)$this->calories,
+        ];
         foreach ($this->questionKeys as $key) {
             if (isset($this->answers[$key])) {
                 if ($this->questions[$key]['type'] === 'checkbox') {
