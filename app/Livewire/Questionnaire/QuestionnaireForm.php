@@ -246,7 +246,7 @@ class QuestionnaireForm extends Component
 
 
         $key = $this->questionKeys[$this->currentQuestionIndex] ?? null;
-        return view('livewire.questionnaire.questionnaire-form', [
+        return view('livewire.Questionnaire.questionnaire-form', [
             'currentQuestion' => isset($this->questions[$key]) ? $this->questions[$key] : null,
             'totalQuestions' => count($this->questions),
         ]);
