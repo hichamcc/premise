@@ -104,7 +104,10 @@ class QuestionnaireForm extends Component
             $this->answered = true;
        }
 
-        // Initialize questions, if necessary
+        $this->answers['left_arm_circumference'] = '';
+        $this->answers['waist_circumference'] = '';
+        $this->answers['hip_circumference'] = '';
+        $this->answers['chest_circumference'] = '';
     }
 
     public function nextQuestion()
