@@ -225,7 +225,7 @@ class QuestionnaireForm extends Component
         }
 
         if ($this->side_photos) {
-            $data['side_photos'] = $this->side_photo->store('photos', 'public');
+            $data['side_photos'] = $this->side_photos->store('photos', 'public');
         }
 
         if ($this->back_photo) {
