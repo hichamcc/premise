@@ -235,7 +235,7 @@ class QuestionnaireForm extends Component
             $data['back_photo'] = $this->back_photo->store('photos', 'public');
         }
 
-
+        dd($data);
         Questionnaire::create($data);
 
         // Run the artisan command
