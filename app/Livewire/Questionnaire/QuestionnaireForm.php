@@ -194,7 +194,7 @@ class QuestionnaireForm extends Component
         // Validate the file inputs
         $this->validate([
             'front_photo' => 'nullable|image|max:10240', // 10MB max
-            'side_photo' => 'nullable|image|max:10240', // 10MB max
+            'side_photos' => 'nullable|image|max:10240', // 10MB max
             'back_photo' => 'nullable|image|max:10240', // 10MB max
         ]);
 
