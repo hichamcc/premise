@@ -3,6 +3,7 @@
 namespace App\Livewire\Questionnaire;
 
 use App\Models\Questionnaire;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -228,6 +229,9 @@ class QuestionnaireForm extends Component
             $data['back_photo'] = $this->answers['back_photo']->store('photos', 'public');
         }
         Questionnaire::create($data);
+
+        // Run the artisan command
+        Artisan::call('diet:generate');
 
         session()->flash('message', 'Questionnaire submitted successfully.');
 

@@ -60,7 +60,7 @@ class GenerateDietPlans extends Command
         }
 
         // Generate dates for today and the next two days
-        $dates = collect(range(0, 2))->map(fn($i) => now()->addDays($i)->toDateString());
+        $dates = collect(range(1, 2))->map(fn($i) => now()->addDays($i)->toDateString());
 
         // Get existing diet plans for the specified dates
         $existingPlans = $user->dietPlans()->whereIn('day', $dates)->get()->keyBy('day');
