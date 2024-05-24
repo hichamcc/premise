@@ -88,6 +88,10 @@ class QuestionnaireForm extends Component
         'fish_not_eaten',
         'intolerances_or_allergies',
         'diseases_diagnosed_by_doctor',
+        'left_arm_circumference',
+        'waist_circumference',
+        'hip_circumference',
+        'chest_circumference',
         'front_photo',
         'side_photos',
         'back_photo',
@@ -215,14 +219,7 @@ class QuestionnaireForm extends Component
         ]);
 
         // Prepare data array for text inputs
-        $data = [
-            'left_arm_circumference' => $this->left_arm_circumference,
-            'waist_circumference' => $this->waist_circumference,
-            'hip_circumference' => $this->hip_circumference,
-            'chest_circumference' => $this->chest_circumference,
-            'user_id' => Auth::id(),
-            'calories' => (int)$this->calories,
-        ];
+
         foreach ($this->questionKeys as $key) {
             if (isset($this->answers[$key])) {
                 if ($this->questions[$key]['type'] === 'checkbox') {
@@ -259,6 +256,11 @@ class QuestionnaireForm extends Component
         if ($this->back_photo) {
             $data['back_photo'] = $this->back_photo->store('photos', 'public');
         }
+
+        $data['left_arm_circumference'] = $this->left_arm_circumference;
+        $data['waist_circumference'] = $this->waist_circumference;
+        $data['hip_circumference'] = $this->hip_circumference;
+        $data['chest_circumference'] = $this->chest_circumference;
 
         dd($data);
         Questionnaire::create($data);
