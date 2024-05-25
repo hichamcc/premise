@@ -46,7 +46,7 @@
                                    </h3>
 
                                     <div class="max-w-xl m-auto p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                                        <div class="rich-text">{!! $plan->diet->description !!}</div>
+                                        <div class="rich-text">{!! $plan->description !!}</div>
                                     </div>
 
                                 </li>

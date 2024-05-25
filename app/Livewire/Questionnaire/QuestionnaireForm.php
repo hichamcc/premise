@@ -132,6 +132,10 @@ class QuestionnaireForm extends Component
         if( $this->currentQuestionIndex == 27 ) {
             $i =3;
         }
+
+        if( $this->currentQuestionIndex == 5 ) {
+            $i =2;
+        }
         $this->currentQuestionIndex = $this->currentQuestionIndex+$i ;
 
         if ($this->currentQuestionIndex >= count($this->questionKeys)) {

@@ -31,7 +31,7 @@ class DashboardController extends Controller
 
             // Get the diet plans for the next 3 days including today
             $dietPlans = DietPlan::where('user_id', $user->id)
-                ->whereBetween('day', [$today, $today->copy()->addDays(2)])
+                ->whereBetween('day', [$today, $today->copy()->addDays(3)])
                 ->with('diet') // Assuming there's a 'diet' relation on DietPlan model
                 ->orderBy('day')
                 ->get();

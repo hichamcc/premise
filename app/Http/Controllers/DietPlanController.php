@@ -29,7 +29,7 @@ class DietPlanController extends Controller
             return redirect()->route('dashboard')->with('error', 'No suitable diet plans found. Please try again later.');
         }
 
-        $dates = collect(range(0, 2))->map(fn($i) => now()->addDays($i)->toDateString());
+        $dates = collect(range(0, 3))->map(fn($i) => now()->addDays($i)->toDateString());
 
         // Get existing diet plans for the user for the next 3 days
         $existingPlans = $user->dietPlans()->whereIn('day', $dates)->get()->keyBy('day');

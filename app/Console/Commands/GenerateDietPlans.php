@@ -34,7 +34,6 @@ class GenerateDietPlans extends Command
         $this->info("Generate diet plans for users who have answered the questionnaire");
 
         $users = User::with('questionnaire')->get();
-
         foreach ($users as $user) {
             if ($user->questionnaire) {
                 $this->generateDietPlans($user);
@@ -46,6 +45,7 @@ class GenerateDietPlans extends Command
 
     private function generateDietPlans($user)
     {
+
         $questionnaire = $user->questionnaire;
 
         if (!$questionnaire || !$questionnaire->calories) {
@@ -86,11 +86,14 @@ class GenerateDietPlans extends Command
                 array_shift($previousDiets);
             }
 
+
+
             // Check again before creating the new diet plan for the missing date
             if (!DietPlan::where('user_id', $user->id)->where('day', $date)->exists()) {
                 DietPlan::create([
                     'user_id' => $user->id,
                     'diet_id' => $diet->id,
+                    'description' => $diet->description,
                     'day' => $date,
                 ]);
             }

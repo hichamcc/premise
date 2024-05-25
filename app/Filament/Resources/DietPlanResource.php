@@ -7,6 +7,7 @@ use App\Filament\Resources\DietPlanResource\RelationManagers;
 use App\Models\DietPlan;
 use Carbon\Carbon;
 use Filament\Forms;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -32,10 +33,27 @@ class DietPlanResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('diet_id')
-                ->relationship('diet' , 'name')
-                ->label('Diet')
-            ]);
+                RichEditor::make('description')
+                    ->required()
+                    ->label('Diet')
+                    ->toolbarButtons([
+                        'attachFiles',
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'codeBlock',
+                        'h2',
+                        'h3',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'underline',
+                        'undo',
+                    ])
+                    ->maxLength(65535),
+            ])->columns(1);
     }
 
     public static function table(Table $table): Table
