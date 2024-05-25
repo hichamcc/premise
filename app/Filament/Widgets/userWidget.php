@@ -4,6 +4,7 @@ namespace App\Filament\Widgets;
 
 use App\Models\Diet;
 use App\Models\User;
+use App\Models\Workout;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
@@ -22,7 +23,7 @@ class userWidget extends BaseWidget
                 ->description('Total diets')
                 ->chart([5,3,1,2,4])
                 ->color('warning'),
-            Stat::make('Workouts' , Diet::count())
+            Stat::make('Workouts' , Workout::count())
                 ->descriptionIcon('heroicon-o-trophy' )
                 ->description('Total workouts video')
                 ->chart([1,5,1,2,6])
