@@ -102,7 +102,7 @@
     <div class="w-full text-center">
         <h1 class="sm:text-7xl text-4xl font-bold text-white">Generate Custom Diets Easily With</h1>
         <h1>
-            <img src="{{asset('images/logo.png')}}" class="sm:w-48 w-24 m-auto p-4 bg-white rounded-2xl shadow-xl mt-4" alt="">
+            <img src="{{asset('images/logo.png')}}" class="sm:w-24 w-48 m-auto p-4 bg-white rounded-2xl shadow-xl mt-4" alt="">
         </h1>
 
 
