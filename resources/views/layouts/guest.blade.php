@@ -18,7 +18,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div>
                 <a href="/" wire:navigate class="text-4xl font-extrabold tracking-tight leading-none text-blue-700 md:text-5xl lg:text-6xl dark:text-white">
-                        Premise
+                    <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                 </a>
             </div>
 

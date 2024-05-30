@@ -11,12 +11,12 @@
         @endif
             @if ($bmi && $currentQuestionIndex == 13)
                 <div class="mt-4 text-2xl font-semibold text-center">
-                    Your BMI: {{ $bmi }}
+                    Il tuo BMI è : {{ $bmi }}
                     <p>{{ $bmiMessage }}</p>
                 </div>
             @endif
             @if ($metabolism && $currentQuestionIndex == 13)
-                <div class="mt-4 text-2xl font-semibold text-center">
+                <div class="mt-4 text-2xl font-semibold text-center hidden">
                     Your Metabolism: {{ $metabolism }} kcal/day
                     <br>
                 </div>
@@ -57,46 +57,29 @@
                         @endforeach
                     </ul>
                 @elseif ($currentQuestion['type'] === 'text' && !in_array($currentQuestionIndex, $specialStep) )
-                    <input type="text" wire:model="answers.{{ $questionKeys[$currentQuestionIndex] }}" name="{{ $questionKeys[$currentQuestionIndex] }}" id="{{ $questionKeys[$currentQuestionIndex] }}" class="mt-2 block w-1/2 mx-auto h-[100px] text-xl px-4 py-2 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" placeholder="{{ $currentQuestion['placeholder'] ?? 'Enter your answer' }}">
-                @elseif ($currentQuestion['type'] === 'file' && !in_array($currentQuestionIndex, $specialStep) )
+                    <input type="text" wire:model="answers.{{ $questionKeys[$currentQuestionIndex] }}" name="{{ $questionKeys[$currentQuestionIndex] }}" id="{{ $questionKeys[$currentQuestionIndex] }}" class="mt-2 block w-1/2 mx-auto h-[100px] text-xl px-4 py-2 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" placeholder="{{ $currentQuestion['placeholder'] ?? '' }}">
+                  @elseif ($currentQuestion['type'] === 'number' && !in_array($currentQuestionIndex, $specialStep) )
+                        <input
+                            type="number"
+                            wire:model="answers.{{ $questionKeys[$currentQuestionIndex] }}"
+                            name="{{ $questionKeys[$currentQuestionIndex] }}"
+                            id="{{ $questionKeys[$currentQuestionIndex] }}"
+                            class="mt-2 block w-1/2 mx-auto h-[100px] text-xl px-4 py-2 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+                            placeholder="{{ $currentQuestion['placeholder'] ?? '' }}"
+                            @if (isset($currentQuestion['min'])) min="{{ $currentQuestion['min'] }}" @endif
+                            @if (isset($currentQuestion['max'])) max="{{ $currentQuestion['max'] }}" @endif
+                        >
+                    @elseif ($currentQuestion['type'] === 'file' && !in_array($currentQuestionIndex, $specialStep) )
                     <input type="file" wire:model="answers.{{ $questionKeys[$currentQuestionIndex] }}" name="{{ $questionKeys[$currentQuestionIndex] }}" id="{{ $questionKeys[$currentQuestionIndex] }}" class="mt-2 block w-1/2 px-4 py-2 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
                 @endif
 
-                {{-- Special Step for Circumferences --}}
-                @if ($currentQuestionIndex == $specialStep[0])
-                        <p class="text-4xl font-medium text-blue-700 text-center mt-8">TO MONITOR PROGRESS...</p>
-                        <p class="text-4xl font-medium text-blue-700 text-center mt-8 mb-4"> ENTER YOUR CIRCUMFERENCES</p>
-                    <div class="step">
-                        @foreach (['left_arm_circumference', 'waist_circumference', 'hip_circumference', 'chest_circumference'] as $keya)
-                            <div class="flex gap-2 items-center mb-2">
-                                <label class="w-1/2 text-xl">{{ $questions[$keya]['label'] }}</label>
-                                <input class="w-1/2 mt-2 block w-1/2 mx-auto h-[50px] text-xl px-4 py-2 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" type="text" name="{{ $keya}}" id="{{ $keya}}" wire:model.defer="{{ $keya }}" placeholder="{{ $questions[$keya]['placeholder'] }}">
-                            </div>
-                        @endforeach
-                    </div>
-                @endif
 
-                {{-- Special Step for Photos --}}
-                @if ($currentQuestionIndex == $specialStep[1])
-                        <p class="text-4xl font-medium text-blue-700 text-center mt-8">TO MONITOR PROGRESS...</p>
-                        <p class="text-4xl font-medium text-blue-700 text-center mt-8 mb-4"> INSERT YOUR CURRENT PHOTOS</p>
-                        <div class="step">
-                            @foreach (['front_photo', 'side_photos', 'back_photo'] as $key)
-                                <div class="flex gap-2 items-center mb-2">
-                                    <label class="w-1/2 text-xl">{{ $questions[$key]['label'] }}</label>
-                                    <input class="  mt-2 block w-1/2 px-4 py-2 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" type="file" name="{{ $key }}" id="{{$key}}" wire:model.defer="{{ $key }}">
-                                </div>
-                            @endforeach
-                        </div>
-                        <p class="text-md text-gray-600">IT'S NOT MANDATORY, IF YOU DON'T FEEL LIKE IT YOU CAN NOT UPLOAD THEM</p>
-                       <p class="text-md text-gray-600"> N. B. THEY WILL NOT BE PUBLISHED ANYWHERE</p>
-                @endif
             </div>
 
                 @if ($currentQuestion['type'] != 'select')
                     <button wire:click="nextQuestion"  class=" bottom-0 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-blue-700 to-blue-400 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
                         <span class="flex gap-2 items-center relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                            Next Step
+                            passo successivo
                             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                             </svg>
@@ -104,29 +87,47 @@
                     </button>
                 @endif
             @else
-                    <div class="font-medium text-lg">
-                        <p class=" mb-2">You will be able to consult your plan in your account. </p>
-                        <p class=" mb-2">By following the diet regimen you will find in your account you should lose at least 20 pounds in three months.</p>
-                        <p class=" mb-2">We aim for this result for three reasons:</p>
-                        <p class=" mb-2 text-blue-600">1) All studies have shown major benefits even with weight reductions of 5%.</p>
-                    <p class=" mb-2 text-blue-600">2) The slowest weight losses are the ones that are most sustained over time.</p>
-                    <p class=" mb-2 text-blue-600">3) Excessive calorie reduction may be difficult to follow.</p>
-                    <p class=" mb-2 ">We prefer to proceed in steps, so having reached the first goal at three months, we can continue with a more ambitious goal.”</p>
+                <div class="font-medium text-lg">
+                    <p class=" mb-2">Potrai consultare il tuo piano nel tuo account. </p>
+                    <p class=" mb-2">Seguendo il regime dietetico che troverai nel tuo account, dovresti perdere almeno 6 chili in tre mesi.</p>
+                    <p class=" mb-2">Puntiamo a questo risultato per tre motivi: </p>
+                    <p class=" mb-2 text-blue-600">1) Tutti gli studi hanno dimostrato grandi benefici anche con riduzioni di peso del 5%.</p>
+                    <p class=" mb-2 text-blue-600">2) Le perdite di peso più lente sono quelle più durature nel tempo.</p>
+                    <p class=" mb-2 text-blue-600">3) Una riduzione calorica eccessiva può essere difficile da seguire.</p>
+                    <p class=" mb-2 ">Preferiamo procedere per gradi, così dopo aver raggiunto il primo obiettivo a tre mesi, possiamo continuare con un obiettivo più ambizioso.</p>
 
                 </div>
+
+                <a href="{{route('dashboard')}}"  class=" relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                            <span class=" flex gap-2 items-center relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Compila il questionario
+                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                </svg>
+                            </span>
+                </a>
             @endif
     </div>
     @else
         <div class="font-medium text-lg">
-            <p class=" mb-2">You will be able to consult your plan in your account. </p>
-            <p class=" mb-2">By following the diet regimen you will find in your account you should lose at least 20 pounds in three months.</p>
-            <p class=" mb-2">We aim for this result for three reasons:</p>
-            <p class=" mb-2 text-blue-600">1) All studies have shown major benefits even with weight reductions of 5%.</p>
-            <p class=" mb-2 text-blue-600">2) The slowest weight losses are the ones that are most sustained over time.</p>
-            <p class=" mb-2 text-blue-600">3) Excessive calorie reduction may be difficult to follow.</p>
-            <p class=" mb-2 ">We prefer to proceed in steps, so having reached the first goal at three months, we can continue with a more ambitious goal.”</p>
+            <p class=" mb-2">Potrai consultare il tuo piano nel tuo account. </p>
+            <p class=" mb-2">Seguendo il regime dietetico che troverai nel tuo account, dovresti perdere almeno 6 chili in tre mesi.</p>
+            <p class=" mb-2">Puntiamo a questo risultato per tre motivi: </p>
+            <p class=" mb-2 text-blue-600">1) Tutti gli studi hanno dimostrato grandi benefici anche con riduzioni di peso del 5%.</p>
+            <p class=" mb-2 text-blue-600">2) Le perdite di peso più lente sono quelle più durature nel tempo.</p>
+            <p class=" mb-2 text-blue-600">3) Una riduzione calorica eccessiva può essere difficile da seguire.</p>
+            <p class=" mb-2 ">Preferiamo procedere per gradi, così dopo aver raggiunto il primo obiettivo a tre mesi, possiamo continuare con un obiettivo più ambizioso.</p>
 
         </div>
+
+        <a href="{{route('dashboard')}}"  class=" mt-8 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-lg font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                            <span class=" flex gap-2 items-center relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Dashboard
+                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                </svg>
+                            </span>
+        </a>
    @endif
 
 </div>

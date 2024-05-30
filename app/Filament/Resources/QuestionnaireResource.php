@@ -86,28 +86,7 @@ class QuestionnaireResource extends Resource
                     ->label(' Meat You Don\'t Eat')
 ,                TextInput::make('fish_not_eaten')
                     ->label(' Fish You Don\'t Eat')
-,                TextInput::make('intolerances_or_allergies')
-                    ->label('Do You Have One or More of These Intolerances and/or Allergies?')
-,                TextInput::make('diseases_diagnosed_by_doctor')
-                    ->label('Do You Have Any of These Diseases? (Diagnosed by a Doctor)')
-,                TextInput::make('left_arm_circumference')
-                    ->label('Left Arm Circumference')
-,                TextInput::make('waist_circumference')
-                    ->label('Waist Circumference'),
-                TextInput::make('hip_circumference')
-                    ->label('Hip Circumference'),
-                TextInput::make('chest_circumference')
-                    ->label('Chest Circumference'),
-                FileUpload::make('front_photo')
-                    ->image()
-                    ->directory('photos')
-                    ->label('Front Photo'),
-                FileUpload::make('side_photos')
-                    ->image()
-                    ->label('Side Photos'),
-                FileUpload::make('back_photo')
-                    ->image()
-                    ->label('Back Photo'),
+,
                 ])->columns(1);
     }
 

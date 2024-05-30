@@ -90,8 +90,8 @@
                 <a href="{{ url('/dashboard') }}" class="text-gray-800 hover:text-light text-white py-2 px-8  rounded-2xl bg-dark">Dashboard</a>
 
             @else
-            <a href="{{ route('register') }}" class="text-dark font-semibold hover:text-gray-600 mx-4">Sign Up</a>
-            <a href="{{ route('login') }}" class="text-gray-800 hover:text-light text-white py-2 px-8  rounded-2xl bg-dark">Sign In</a>
+            <a href="{{ route('register') }}" class="text-dark font-semibold hover:text-gray-600 mx-4">Iscriviti</a>
+            <a href="{{ route('login') }}" class="text-gray-800 hover:text-light text-white py-2 px-8  rounded-2xl bg-dark">Accedi</a>
             @endauth
 
         </div>
@@ -100,19 +100,18 @@
 
 <main class="container mx-auto px-6 py-16 flex items-center justify-between slide-in-left">
     <div class="w-full text-center">
-        <h1 class="sm:text-7xl text-4xl font-bold text-white">Generate Custom Diets Easily With</h1>
+        <h1 class="sm:text-7xl text-4xl font-bold text-white">Crea la tua dieta personalizzata in pochi semplici passi con</h1>
         <h1>
             <img src="{{asset('images/logo.png')}}" class="sm:w-24 w-48 m-auto p-4 bg-white rounded-2xl shadow-xl mt-4" alt="">
         </h1>
 
 
         <section class="m-16">
-            <a href="{{ route('register') }}" class="text-white font-bold sm:text-2xl text-xl  bg-dark p-4 rounded-2xl mt-4 hover:bg-gray-700  ">Let's get started</a>
+            <a href="{{ route('register') }}" class="text-white font-bold sm:text-2xl text-xl  bg-dark p-4 rounded-2xl mt-4 hover:bg-gray-700  ">Iniziamo subito!</a>
         </section>
 
 
-        <p class="mt-4  sm:text-2xl text-xl text-white">Obesity profoundly affects the state of health since it is accompanied by important diseases such as type 2 diabetes mellitus, arterial
-            hypertension, ischemic heart disease and other morbid conditions which, to varying degrees, worsen the quality of life and shorten its duration.</p>
+        <p class="mt-4  sm:text-2xl text-xl text-white">L'obesità ha un impatto profondo sulla salute, essendo spesso accompagnata da gravi patologie come il diabete mellito di tipo 2, l'ipertensione arteriosa, le malattie cardiache ischemiche e altre condizioni morbose che, a vari livelli, peggiorano la qualità della vita e ne riducono la durata.</p>
 
     </div>
 
@@ -122,7 +121,7 @@
 <!-- Footer -->
 <footer class="bg-dark z-10">
     <div class="container mx-auto px-6 py-4 text-center text-white">
-        &copy; 2024 FITFORMA. All rights reserved.
+        &copy; 2024 FITFORMA. Tutti i diritti riservati.
     </div>
 </footer>
 

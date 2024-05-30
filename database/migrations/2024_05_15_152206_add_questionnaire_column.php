@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('questionnaires', function (Blueprint $table) {
-            $table->enum('genre', ['male', 'female']);
+            $table->string('genre');
             $table->string('physical_activity')->nullable();
             $table->string('goal')->nullable();
             $table->string('target_zones')->nullable();
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('current_weight');
             $table->integer('height');
             $table->integer('desired_weight');
-            $table->enum('calculation_choice', ['keep_choice', 'speed_up_process']);
+            $table->string('calculation_choice')->nullable();
             $table->string('vegetables_not_eaten')->nullable();
             $table->string('fruits_not_eaten')->nullable();
             $table->string('oilseeds_not_eaten')->nullable();

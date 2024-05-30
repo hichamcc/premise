@@ -37,13 +37,13 @@ new class extends Component
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('diets')" :active="request()->routeIs('diets')" wire:navigate>
-                        {{ __('Diet') }}
+                        {{ __('Dieta') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('workouts')" :active="request()->routeIs('workouts')" wire:navigate>
-                        {{ __('Workout') }}
+                        {{ __('Allenamento') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -65,13 +65,13 @@ new class extends Component
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile')" wire:navigate>
-                            {{ __('Profile') }}
+                            {{ __('Profilo') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
                         <button wire:click="logout" class="w-full text-start">
                             <x-dropdown-link>
-                                {{ __('Log Out') }}
+                                {{ __('Esci') }}
                             </x-dropdown-link>
                         </button>
                     </x-slot>
@@ -107,13 +107,13 @@ new class extends Component
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile')" wire:navigate>
-                    {{ __('Profile') }}
+                    {{ __('Profilo') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
                 <button wire:click="logout" class="w-full text-start">
                     <x-responsive-nav-link>
-                        {{ __('Log Out') }}
+                        {{ __('Esci') }}
                     </x-responsive-nav-link>
                 </button>
             </div>

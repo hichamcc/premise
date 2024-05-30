@@ -26,11 +26,11 @@ new class extends Component
 <section class="space-y-6">
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Delete Account') }}
+            {{ __('Elimina account') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+            {{ __('Una volta eliminato il tuo account, tutte le sue risorse e dati saranno permanentemente cancellati. Prima di eliminare il tuo account, ti preghiamo di scaricare qualsiasi dato o informazione che desideri conservare.') }}
         </p>
     </header>
 
@@ -71,7 +71,7 @@ new class extends Component
                 </x-secondary-button>
 
                 <x-danger-button class="ms-3">
-                    {{ __('Delete Account') }}
+                    {{ __('Elimina account') }}
                 </x-danger-button>
             </div>
         </form>

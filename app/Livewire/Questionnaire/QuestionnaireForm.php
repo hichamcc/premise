@@ -32,37 +32,68 @@ class QuestionnaireForm extends Component
     public $chest_circumference;
 
     public $questions = [
-        'genre' => ['required'=>'true','label' => 'SELECT YOUR GENRE', 'type' => 'select', 'options' => ['Male', 'Female'] ],
-        'physical_activity' => ['required'=>'true','label' => 'WHAT IS YOUR LEVEL OF PHYSICAL ACTIVITY?', 'type' => 'select', 'options' => ['SEDENTARY: I exercise less than 2 time', 'MODERATE: I exercise about 2 times a week', 'ACTIVE: I exercise more than 2 times a week']],
-        'goal' => ['required'=>'true','label' => 'WHAT IS YOUR GOAL?', 'type' => 'select', 'options' => ['LOSE WEIGHT', 'INCREASING MUSCLE MASS', 'ADOPT A HEALTHY LIFESTYLE']],
-        'target_zones' => ['label' => 'WHAT ARE YOUR TARGET ZONES?', 'type' => 'checkbox' , 'options'=>['ARMS','BIBS','ABDOMINAL','LEGS','BACK']],
-        'walks_frequency' => ['label' => 'HOW OFTEN DO YOU GO FOR WALKS?', 'type' => 'select' , 'options'=>['EVERYDAY' , '1-2 TIMES A WEEK' , '3-4 TIMES A WEEK']],
-        'habits' => ['label' => 'WHICH STATEMENT BEST DESCRIBES YOUR HABITS?', 'type' => 'select' , 'options'=>['I EAT BAD' , 'MY DIET NEEDS IMPROVEMENT' , 'I HAVE HEALTHY HABITS']],
+        'genre' => ['required'=>'true','label' => 'SELEZIONA IL TUO GENERE', 'type' => 'select', 'options' => ['Maschio', 'Femmina'] ],
+        'physical_activity' => ['required'=>'true','label' => 'QUAL E’ IL TUO LIVELLO DI ATTIVITA’ FISICA?', 'type' => 'select', 'options' => ['SEDENTARIO: faccio attività fisica meno di 2 volte al mese', 'MODERATO: faccio attività fisica circa 2 volte a settimana', 'ATTIVO: faccio attività fisica più di 2 volte a settimana']],
+        'goal' => ['required'=>'true','label' => 'QUAL E’ IL TUO OBIETTIVO?', 'type' => 'select', 'options' => ['PERDERE PESO', 'AUMENTARE LA MASSA MUSCOLARE', 'ADOTTARE UNO STILE DI VITA SANO']],
+        'target_zones' => ['label' => 'QUALI SONO LE TUE ZONE TARGET?', 'type' => 'checkbox' , 'options'=>['BRACCIA','PETTORALI','ADDOMINALI','GAMBE','SCHIENA']],
+        'walks_frequency' => ['label' => 'QUANTO SPESSO FAI DELLE PASSEGGIATE?', 'type' => 'select' , 'options'=>['OGNI GIORNO' , '1-2 VOLTE A SETTIMANA' , '3-4 VOLTE A SETTIMANA']],
+        'habits' => ['label' => 'QUALE AFFERMAZIONE DESCRIVE MEGLIO LE TUE ABITUDINI?', 'type' => 'select' , 'options'=>['MANGIO MALE' , 'LA MIA DIETA HA BISOGNO DI MIGLIORAMENTI' , 'HO DELLE SANE ABITUDINI']],
         'meals_per_day' => ['label' => 'HOW MANY TIMES A DAY DO YOU WANT TO EAT?', 'type' => 'select', 'options' => ['2: Lunch and dinner', '3: Breakfast, lunch and dinner', '4: Breakfast, lunch, snack, dinner', '5: Breakfast, mid-morning snack, lunch, snack, dinner']],
-        'sleep_hours_per_night' => ['label' => 'HOW MANY HOURS DO YOU SLEEP PER NIGHT?', 'type' => 'select' , 'options'=>['LESS THAN 5 HOURS' , '5-8 HOURS' , 'MORE THAN 8 HOURS']],
-        'water_consumption' => ['label' => 'HOW MUCH WATER DO YOU DRINK DURING THE DAY?', 'type' => 'select' , 'options'=>['LESS THAN 1 L' , 'ABOUT 1.5 L' , 'MORE THAN 1.5 L']],
-        'age' => ['required'=>'true','label' => 'ENTER YOUR AGE', 'type' => 'text' , 'placeholder'=>'Years'],
-        'current_weight' => ['required'=>'true','label' => 'ENTER YOUR CURRENT WEIGHT', 'type' => 'text', 'placeholder'=>'KG'],
-        'height' => ['required'=>'true','label' => 'ENTER YOUR HEIGHT', 'type' => 'text' , 'placeholder'=>'CM'],
-        'desired_weight' => ['required'=>'true','label' => 'ENTER YOUR DESIRED WEIGHT', 'type' => 'text', 'placeholder'=>'KG'],
-        'calculation_choice' => ['required'=>'true','label' => 'CALCULATIONS AND WRITING:', 'type' => 'select' , 'options'=>['I KEEP THIS CHOICE' , 'I NEED TO SPEED UP THE PROCESS']],
-        'vegetables_not_eaten' => ['label' => 'SELECT THE VEGETABLES YOU DON\'T EAT', 'type' => 'checkbox','options'=>['ZUCHINIS' , 'TOMATOES' , 'ARTICHOKES' , 'CUCUMBERS' , 'EGGPLANT']],
-        'fruits_not_eaten' => ['label' => 'SELECT THE FRUIT YOU DON\'T EAT', 'type' => 'checkbox' , 'options'=>['STRAWBERRIES' , 'APPLE' , 'PEARS' , 'BANANA',' ORANGES' ]],
-        'oilseeds_not_eaten' => ['label' => 'SELECT THE OILSEEDS YOU DON\'T EAT', 'type' => 'checkbox' , 'options'=>['PEANUTS' , 'CASHEW NUTS' , 'HAZELNUTS' , 'NUTS' , 'PISTACHIOS']],
-        'legumes_not_eaten' => ['label' => 'SELECT THE LEGUMES YOU DON\'T EAT', 'type' => 'checkbox','options'=>['CHICKPEAS' , 'FAVA BEANS' , 'BEANS' , 'LENTILS' ,'PEAS' ]],
-        'dairy_products_not_eaten' => ['label' => 'SELECT THE DAIRY PRODUCTS YOU DON\'T EAT', 'type' => 'checkbox' , 'options'=>['COTTAGE CHEESE' , 'PHILADELPHIA LIGHT' , 'RICOTTA' , 'MOZZARELLA CHEESE' , 'MILK']],
-        'meat_not_eaten' => ['label' => 'SELECT THE MEAT YOU DON\'T EAT', 'type' => 'checkbox' , 'options'=>['LAMB' , 'HORSE' , 'BEEF' , 'CHICKEN' , 'RABBIT']],
-        'fish_not_eaten' => ['label' => 'SELECT THE FISH YOU DON\'T EAT', 'type' => 'checkbox' , 'options'=>['SQUID','SWORDFISH'  , 'TUNA','SALMON','SALMON SEA BASS (BASS)']],
-        'intolerances_or_allergies' => ['label' => 'DO YOU HAVE ONE OR MORE OF THESE INTOLERANCES AND/OR ALLERGIES?', 'type' => 'checkbox','options'=>['LACTOSE INTOLERANCE','GLUTEN INTOLERANCE','EGG ALLERGY','PEANUT ALLERGY','CRUSTACEANS ALLERGY']],
-        'diseases_diagnosed_by_doctor' => ['label' => 'DO YOU HAVE ANY OF THESE DISEASES? (diagnosed by a doctor)', 'type' => 'checkbox','options'=>['DYSLIPIDEMIA','DIABETES MELLITUS TYPE 2' , 'GASTRITIS AND/OR ESOPHAGITIS' , 'GASTROESOPHAGEAL REFLUX' , 'HYPERTENSION' ]],
-        'left_arm_circumference' => ['label' => 'Left Arm Circumference', 'type' => 'text', 'placeholder'=>'CM'],
-        'waist_circumference' => ['label' => 'Waist Circumference', 'type' => 'text', 'placeholder'=>'CM'],
-        'hip_circumference' => ['label' => 'Hip Circumference', 'type' => 'text', 'placeholder'=>'CM'],
-        'chest_circumference' => ['label' => 'Chest Circumference', 'type' => 'text', 'placeholder'=>'CM'],
-        'front_photo' => ['label' => 'Front Photo', 'type' => 'file'],
-        'side_photos' => ['label' => 'Side Photos', 'type' => 'file'],
-        'back_photo' => ['label' => 'Back Photo', 'type' => 'file'],
+        'sleep_hours_per_night' => ['label' => 'QUANTE ORE DORMI A NOTTE?', 'type' => 'select' , 'options'=>['MENO DI 5 ORE' , '5-8 ORE' , "PIU' DI 8 ORE"]],
+        'water_consumption' => ['label' => 'QUANTA ACQUA BEVI DURANTE IL GIORNO?', 'type' => 'select' , 'options'=>['MENO DI 1 L' , 'CIRCA 1.5 L' , "PIU' DI 1.5 L"]],
+        'age' => [
+            'required' => 'true',
+            'label' => 'INSERISCI LA TUA ETA',
+            'type' => 'number',
+            'placeholder' => 'Anni',
+            'min' => 1,
+            'max' => 120
+        ],
+        'current_weight' => [
+            'required' => 'true',
+            'label' => 'INSERISCI IL TUO PESO ATTUALE',
+            'type' => 'number',
+            'placeholder' => 'KG',
+            'min' => 10,
+            'max' => 200
+        ],
+        'height' => [
+            'required' => 'true',
+            'label' => 'INSERISCI LA TUA ALTEZZA',
+            'type' => 'number',
+            'placeholder' => 'CM',
+            'min' => 40,
+            'max' => 220
+        ],
+        'desired_weight' => [
+            'required' => 'true',
+            'label' => 'INSERISCI IL TUO PESO DESIDERATO',
+            'type' => 'number',
+            'placeholder' => 'KG',
+            'min' => 20,
+            'max' => 150
+        ], 'calculation_choice' => ['label' => '', 'type' => 'checkbox' , 'options'=>[]],
+        'vegetables_not_eaten' => ['label' => 'SELEZIONA LE VERDURE CHE NON MANGI', 'type' => 'checkbox','options'=>['ZUCCHINE' , 'POMODORI' , 'CARCIOFI' , 'CETRIOLI' , 'MELANZANE']],
+        'fruits_not_eaten' => ['label' => 'SELEZIONA LA FRUTTA CHE NON MANGI', 'type' => 'checkbox' , 'options'=>['FRAGOLE' , 'CILIEGIE' , 'NESPOLE' , 'ALBICOCCHE',' PESCHE' ]],
+        'oilseeds_not_eaten' => ['label' => 'SELEZIONA I SEMI OLEOSI CHE NON MANGI', 'type' => 'checkbox' , 'options'=>['ARACHIDI' , 'ANACARDI' , 'NOCCIOLE' , 'NOCI' , 'PISTACCHI']],
+        'legumes_not_eaten' => ['label' => 'SELEZIONA I LEGUMI CHE NON MANGI', 'type' => 'checkbox','options'=>['CECI' , 'FAVE' , 'FAGIOLI' , 'LENTICCHIE' ,'PISELLI' ]],
+        'dairy_products_not_eaten' => ['label' => 'SELEZIONA I LATTICINI CHE NON MANGI', 'type' => 'checkbox' , 'options'=>['FIOCCHI DI LATTE' , 'PHILADELPHIA LIGHT' , 'RICOTTA' , 'MOZZARELLA' , 'LATTE']],
+        'meat_not_eaten' => ['label' => 'SELEZIONA LA CARNE CHE NON MANGI', 'type' => 'checkbox' , 'options'=>['AGNELLO' , 'MANZO' , 'TACCHINO' , 'POLLO' , 'CONIGLIO']],
+        'fish_not_eaten' => ['label' => 'SELEZIONA IL PESCE CHE NON MANGI', 'type' => 'checkbox' , 'options'=>['MERLUZZO','PESCE SPADA'  , 'TONNO','SALMONE','SPIGOLA']],
+       // 'intolerances_or_allergies' => ['label' => 'DO YOU HAVE ONE OR MORE OF THESE INTOLERANCES AND/OR ALLERGIES?', 'type' => 'checkbox','options'=>['LACTOSE INTOLERANCE','GLUTEN INTOLERANCE','EGG ALLERGY','PEANUT ALLERGY','CRUSTACEANS ALLERGY']],
+        //'diseases_diagnosed_by_doctor' => ['label' => 'DO YOU HAVE ANY OF THESE DISEASES? (diagnosed by a doctor)', 'type' => 'checkbox','options'=>['DYSLIPIDEMIA','DIABETES MELLITUS TYPE 2' , 'GASTRITIS AND/OR ESOPHAGITIS' , 'GASTROESOPHAGEAL REFLUX' , 'HYPERTENSION' ]],
+       // 'left_arm_circumference' => ['label' => 'Left Arm Circumference', 'type' => 'text', 'placeholder'=>'CM'],
+       // 'waist_circumference' => ['label' => 'Waist Circumference', 'type' => 'text', 'placeholder'=>'CM'],
+       // 'hip_circumference' => ['label' => 'Hip Circumference', 'type' => 'text', 'placeholder'=>'CM'],
+       // 'chest_circumference' => ['label' => 'Chest Circumference', 'type' => 'text', 'placeholder'=>'CM'],
+       // 'front_photo' => ['label' => 'Front Photo', 'type' => 'file'],
+       // 'side_photos' => ['label' => 'Side Photos', 'type' => 'file'],
+       // 'back_photo' => ['label' => 'Back Photo', 'type' => 'file'],
     ];
+
+    //dashboard” button to go back to the dashboard
+
+
 
     public $questionKeys = [
         'genre',
@@ -86,15 +117,15 @@ class QuestionnaireForm extends Component
         'dairy_products_not_eaten',
         'meat_not_eaten',
         'fish_not_eaten',
-        'intolerances_or_allergies',
-        'diseases_diagnosed_by_doctor',
-        'left_arm_circumference',
-        'waist_circumference',
-        'hip_circumference',
-        'chest_circumference',
-        'front_photo',
-        'side_photos',
-        'back_photo',
+        //'intolerances_or_allergies',
+        //'diseases_diagnosed_by_doctor',
+        //'left_arm_circumference',
+        //'waist_circumference',
+        //'hip_circumference',
+        //'chest_circumference',
+        //'front_photo',
+        //'side_photos',
+        //'back_photo',
     ];
 
 
@@ -124,6 +155,19 @@ class QuestionnaireForm extends Component
             return;
         }
 
+
+        // Check if the question is of type number and validate min and max constraints
+        if ($this->questions[$currentQuestionKey]['type'] === 'number') {
+            $min = $this->questions[$currentQuestionKey]['min'] ?? null;
+            $max = $this->questions[$currentQuestionKey]['max'] ?? null;
+            $answer = $this->answers[$currentQuestionKey];
+
+            if (($min !== null && $answer < $min) || ($max !== null && $answer > $max)) {
+                $this->errorMessage = "Inserisci un valore compreso tra $min e $max.";
+                return;
+            }
+        }
+
         $this->errorMessage = ''; // Clear error message
         $i = 1 ;
         if( $this->currentQuestionIndex == 23 ) {
@@ -138,7 +182,7 @@ class QuestionnaireForm extends Component
         }
         $this->currentQuestionIndex = $this->currentQuestionIndex+$i ;
 
-        if ($this->currentQuestionIndex >= count($this->questionKeys)) {
+        if ($this->currentQuestionIndex >= count($this->questions)) {
             $this->storeQuestionnaire();
         }
 
@@ -151,13 +195,16 @@ class QuestionnaireForm extends Component
 
             // Interpret BMI
             if ($this->bmi > 30) {
-                $this->bmiMessage = "Your body mass index depicts an obese condition.";
+                $this->bmiMessage = "indicando una condizione di obesità , una condizione che può essere migliorata con un po' di impegno";
             } elseif ($this->bmi > 25 && $this->bmi <= 30) {
-                $this->bmiMessage = "Your body mass index depicts an overweight condition.";
+                $this->bmiMessage = "indicando una condizione di sovrappeso, una condizione che può essere migliorata con un po' di impegno";
+
             } elseif ($this->bmi > 18.5 && $this->bmi <= 24.9) {
-                $this->bmiMessage = "Your body mass index depicts a normal-weight condition.";
+                $this->bmiMessage = "indicando una condizione di peso normale , una condizione che può essere migliorata con un po' di impegno";
+
             } else {
-                $this->bmiMessage = "Your body mass index depicts an underweight condition.";
+                $this->bmiMessage = "indicando una condizione di sottopeso , una condizione che può essere migliorata con un po' di impegno";
+
             }
         }
 
@@ -169,9 +216,9 @@ class QuestionnaireForm extends Component
             $genre = $this->answers['genre'];
 
             // Calculate Ideal Weight
-            $idealWeight = ($genre == 'Male') ? (($height / 100) ** 2) * 22.1 : (($height / 100) ** 2) * 20.6;
+            $idealWeight = ($genre == 'Maschio') ? (($height / 100) ** 2) * 22.1 : (($height / 100) ** 2) * 20.6;
 
-            if ($genre == 'Male') {
+            if ($genre == 'Maschio') {
                 $this->metabolism = 66 + (13.7 * $weight) + (5 * $height) - (6.8 * $age);
             } else {
                 $this->metabolism = 65 + (9.6 * $weight) + (1.8 * $height) - (4.7 * $age);
@@ -179,11 +226,11 @@ class QuestionnaireForm extends Component
 
             // Calculate Calories based on physical activity
             $activityLevel = $this->answers['physical_activity'] ?? '';
-            if (strpos($activityLevel, 'SEDENTARY') !== false) {
+            if (strpos($activityLevel, 'SEDENTARIO') !== false) {
                 $this->calories = ($this->metabolism * 1.05) - 500;
-            } elseif (strpos($activityLevel, 'MODERATE') !== false) {
+            } elseif (strpos($activityLevel, 'MODERATO') !== false) {
                 $this->calories = ($this->metabolism * 1.15) - 500;
-            } elseif (strpos($activityLevel, 'ACTIVE') !== false) {
+            } elseif (strpos($activityLevel, 'ATTIVO') !== false) {
                 $this->calories = ($this->metabolism * 1.25) - 500;
             }
 

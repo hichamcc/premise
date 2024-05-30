@@ -22,6 +22,8 @@ class DashboardController extends Controller
 
     public function diets()
     {
+        Carbon::setLocale('it');
+
         $user = Auth::user();
         $hasAnsweredQuestionnaire = Questionnaire::where('user_id', $user->id)->exists();
 
